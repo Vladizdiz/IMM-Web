@@ -24,3 +24,145 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.splash-container {
+    background-color: #780b0b;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+    animation: splash-bg 6s forwards;
+}
+
+.splash-content {
+    position: absolute;
+    inset: 0;
+    animation: splash-out 6s forwards;
+}
+
+#splash-header {
+    position: absolute;
+    width: 50%;
+    height: 5%;
+    left: 25%;
+    top: 42%;
+    text-align: center;
+    opacity: 0%;
+    animation: logos 5s forwards;
+}
+
+.splash-header-text {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 37px;
+    margin: 0;
+}
+
+#splash-text {
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 17px;
+    text-align: center;
+    left: 50%;
+    top: 48%;
+    transform: translateX(-50%);
+    width: 75%;
+    opacity: 0%;
+    animation: logos 5s forwards;
+}
+
+.splash-line {
+    position: absolute;
+    background-color: #ffffff;
+    width: 0%;
+    height: 0.1%;
+    top: 38%;
+}
+
+#splash-line-r {
+    right: 50%;
+    animation: line 2.75s ease-in 1.5s forwards;
+}
+
+#splash-line-l {
+    left: 50%;
+    animation: line 2.75s ease-in 1.5s forwards;
+}
+
+#splash-loading {
+    color: #ffffff;
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+    top: 55%;
+    opacity: 0%;
+    animation: loading 5s forwards;
+}
+
+#splash-loading-1 {
+   animation: loading-1 5s infinite;
+}
+
+#splash-loading-2 {
+   animation: loading-2 5s infinite;
+}
+
+#logo-container {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: calc(50% - 40px);
+    top: 22%;
+}
+
+#logo-splash {
+   width: 100%;
+   height: 100%;
+   opacity: 0%;
+   animation: logos 5s forwards;
+}
+
+@keyframes logos {
+    from { opacity: 0%; }
+    to { opacity: 100%; }
+}
+
+@keyframes line {
+    0% { width: 0%; opacity: 0%; }
+    50% { opacity: 100%; }
+    100% { width: 20%; opacity: 100%; }
+}
+
+@keyframes loading {
+    0% { opacity: 100%; }
+    100% { opacity: 100%; }
+}
+
+@keyframes loading-1 {
+    0%, 24%, 50%, 74% { opacity: 0%; }
+    25%, 49%, 75%, 100% { opacity: 100%; }
+}
+
+@keyframes loading-2 {
+    0%, 34%, 50%, 84% { opacity: 0%; }
+    35%, 49%, 85%, 100% { opacity: 100%; }
+}
+
+/* Background transitions from maroon to the app's cream just before splash ends */
+@keyframes splash-bg {
+    0%, 78% { background-color: #780b0b; }
+    95%, 100% { background-color: #FDF8F5; }
+}
+
+/* All splash content fades out in sync with the background transition */
+@keyframes splash-out {
+    0%, 78% { opacity: 100%; }
+    95%, 100% { opacity: 0%; }
+}
